@@ -1,0 +1,33 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Welcome to the DevConnector";
+}
+
+<section class="container">
+
+    <!-- Alert -->
+    @*<div class="alert alert-danger">
+        Invalid Credentials
+    </div>*@
+
+    <h1 class="large text-primary">
+        Sign In
+    </h1>
+    <p class="lead"><i class="fas fa-user"></i> Sign into your account</p>
+    <div asp-validation-summary="All" class="lead text-primary"></div>
+    <form asp-action="Login" class="form" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+        <div class="form-group">
+            <input type="email" asp-for="Email" placeholder="Email Address" />
+        </div>
+        <div class="form-group">
+            <input type="password" asp-for="Senha" placeholder="Password" />
+        </div>
+        <input type="submit" value="Login" class="btn btn-primary" />
+    </form>
+    <p class="my-1">
+        Don't have an account? <a asp-action="Register">Sign Up</a>
+    </p>
+</section>
+
+

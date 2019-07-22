@@ -1,0 +1,35 @@
+﻿@model RegistroViewModel
+
+@{
+    ViewData["Title"] = "Welcome to the DevConnector";
+}
+
+<section class="container">
+    <h1 class="large text-primary">
+        Sign Up
+    </h1>
+    <p class="lead"><i class="fas fa-user"></i> Create Your Account</p>
+    <div asp-validation-summary="All" class="lead text-primary"></div>
+    <form asp-action="Register" method="post" class="form">
+        <div class="form-group">
+            <input type="text" asp-for="Nome" placeholder="Name" required />
+        </div>
+        <div class="form-group">
+            <input type="email" asp-for="Email" placeholder="Email Address" />
+            <small class="form-text">
+                This site uses Gravatar, so if you want a profile image, use a
+                Gravatar email
+            </small>
+        </div>
+        <div class="form-group">
+            <input type="password" asp-for="Senha" placeholder="Password"/>
+        </div>
+        <div class="form-group">
+            <input type="password" asp-for="ConfirmarSenha" placeholder="Confirm Password"/>
+        </div>
+        <input type="submit" value="Register" class="btn btn-primary" />
+    </form>
+    <p class="my-1">
+        Already have an account? <a asp-action="Login">Sign In</a>
+    </p>
+</section>

@@ -1,0 +1,110 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UsuarioModel> SignInManager
+@inject UserManager<UsuarioModel> UserManager
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>@ViewData["Title"] - DevConnectorBackEnd</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/style.min.css" />
+        <link rel="stylesheet"
+              href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+              integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+              crossorigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css?family=Raleway"
+              rel="stylesheet" />
+
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
+    <style>
+        #btn-logout{
+            background:none; 
+            border:none; 
+            color:inherit; 
+            font: inherit; 
+            cursor:pointer;
+        }
+
+        #btn-logout:hover{
+            color:#17a2b8;
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="navbar bg-dark">
+        <h1>
+            <a asp-controller="Home" asp-action="Index"><i class="fas fa-code"></i> DevConnector</a>
+        </h1>
+        <ul>
+            <li><a asp-controller="Profile" asp-action="GetProfiles">Developers</a></li>
+            <li><a asp-controller="Profile" asp-action="GetPosts">Posts</a></li>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <li>
+                    <a asp-controller="Profile" asp-action="Dashboard">
+                        <i class="fas fa-user"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <form class="form-inline" asp-action="Logout" asp-controller="Account" method="post">
+                        <button type="submit" id="btn-logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a asp-controller="Account" asp-action="Login">Login</a>
+                </li>
+                <li><a asp-controller="Account" asp-action="Register">Register</a></li>
+            }
+        </ul>
+    </nav>
+    @RenderBody()
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<UsuarioModel> SignInManager
+@inject UserManager<UsuarioModel> UserManager
+
+
+@{
+    ViewData["Title"] = "Welcome to the DevConnector";
+}
+
+<section class="landing">
+    <div class="dark-overlay">
+        <div class="landing-inner">
+            <h1 class="x-large">Developer Connector</h1>
+            <p class="lead">
+                Create developer profile/portfolio, share posts and get help from
+                other developers
+            </p>
+            @if (SignInManager.IsSignedIn(User))
+            {
+
+            }
+            else
+            {
+                <div class="buttons">
+                    <a asp-controller="Account" asp-action="Register" class="btn btn-primary">Sign Up</a>
+                    <a asp-controller="Account" asp-action="Login" class="btn btn">Login</a>
+                </div>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,43 @@
+﻿@model List<UsuarioModel>
+
+@{
+    ViewData["Title"] = "Welcome To The Developer Connector";
+}
+
+<section class="container">
+    <h1 class="large text-primary">
+        Developers
+    </h1>
+    <p class="lead">
+        <i class="fab fa-connectdevelop"></i> Browse and connect with developers
+    </p>
+    <div class="profiles">
+        @foreach (var profile in Model)
+        {
+            <div class="profile bg-light">
+                <img class="round-img"
+                     src="@profile.ProfilePic"
+                     alt="" />
+                <div>
+                    <h2>@profile.UserName</h2>
+                    <p>@profile.Company</p>
+                    <p>@profile.Location</p>
+                    <a href="@Url.Action("ViewProfile", "Profile", new {username = profile.UserName})" class="btn btn-primary">
+                        View Profile
+                    </a>
+                </div>
+
+                @if(!String.IsNullOrEmpty(profile.Skills))
+                {
+                    string[] skills = profile.Skills.Split(",");
+                    <ul>
+                        @for (int i = 0; i < skills.Length; i++)
+                        {
+                            <li class="text-primary"><i class="fas fa-check"></i> @skills[i].ToUpper() </li>
+                        }
+                    </ul>   
+                }
+            </div>
+        }
+    </div>
+</section>

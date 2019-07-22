@@ -1,0 +1,145 @@
+﻿@model  UsuarioModel
+
+@{
+    ViewData["Title"] = "Welcome To The Developer Connector";
+}
+<section class="container">
+    <h1 class="large text-primary">
+        Posts
+    </h1>
+    <p class="lead"><i class="fas fa-user"></i> Welcome to the community</p>
+
+    <div class="post-form">
+        <div class="post-form-header bg-primary">
+            <h3>Say Something...</h3>
+        </div>
+        <div asp-validation-summary="All" class="lead text-primary"></div>
+        <form class="form my-1" method="post">
+            <textarea cols="30" rows="5" placeholder="Create a post" id="post-body"></textarea>
+            <input type="submit" value="Submit" class="btn btn-dark my-1" id="create-post" />
+        </form>
+        <div class="posts">
+
+        </div>
+    </div>
+</section>
+
+
+<script>
+    $(document).ready(function () {
+        getPosts();
+    });
+
+    function getPosts() {
+        $.ajax({
+            url: '@Url.Action("GetAllPosts", "Profile")',
+            type: "GET",
+            dataType: "json",
+            success: function (result) {
+                let html = '';
+                $.each(result, function (i, post) {
+                    let likes = post.like < 1 ? '' : `<span>${post.likes}</span>`;
+                    let dislikes = post.dislike < 1 ? '' : `<span>${post.dislikes}</span>`;
+                    html += `<div class="post bg-white my-1 p-1">
+                    <div>
+                        <a href="@Url.Action("ViewProfile", "Profile")?username=${post.userName}">
+                            <img class="round-img"
+                                 src="${post.userPic}"
+                                 alt="" />
+                            <h4>${post.userName}</h4>
+                        </a>
+                    </div>
+
+                    <div>
+                        <p class="my-1">
+                            ${post.postBody}
+                        </p>
+                        <button class="btn" id="btn-like" data-id="${post.id}" data-item="${post.likes}">
+                            <i class="fas fa-thumbs-up"></i> ${likes}
+                        </button>
+                        <button class="btn" id="btn-dislike" data-id="${post.id}" data-item="${post.dislikes}">
+                            <i class="fas fa-thumbs-down"></i> ${dislikes}
+                        </button>
+                        <a href="/Profile/OpenPost/${post.id}" class="btn btn-primary">
+                            Discussion
+                        </a>
+                    </div>
+                </div>`;
+                });
+                $('.posts').html(html);
+            },
+            error: function () {
+                alert("Erro ao recuperar informações.");
+            }
+        });
+    }
+
+    $('#create-post').click(function () {
+        let post = {
+            userPic: '@Model.ProfilePic',
+            postBody: $('#post-body').val()
+        };
+
+        $.ajax({
+            url: '@Url.Action("AddPost","Profile")',
+            type: "POST",
+            data: JSON.stringify(post),
+            headers: {
+                RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val()
+            },
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function () {
+                getPosts();
+            },
+            error: function () {
+                alert("Erro");
+            }
+        });
+    });
+
+
+    $(document).on('click', '#btn-like' , function () {
+        var post = JSON.stringify({ 
+            id: $(this).data('id'),
+            likes:$(this).data('item')
+        });
+ 
+        $.ajax({
+            url: '@Url.Action("AddLike", "Profile")',
+            type: "POST",
+            data: post,
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function () {
+                getPosts();
+            },
+            error: function () {
+                alert("Erro")
+            }
+        });
+    });
+
+
+    $(document).on("click",'#btn-dislike', function () {
+        var post = JSON.stringify({ 
+            id: $(this).data('id'),
+            dislikes:$(this).data('item')
+        });
+
+        $.ajax({
+            url: '@Url.Action("AddDislike", "Profile")',
+            type: "POST",
+            data: post,
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function () {
+                getPosts();
+            },
+            error: function () {
+                alert("Erro")
+            }
+        });
+    });
+
+</script>

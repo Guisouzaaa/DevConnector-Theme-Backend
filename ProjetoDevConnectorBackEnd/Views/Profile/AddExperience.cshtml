@@ -1,0 +1,50 @@
+﻿@model  ExpViewModel
+
+@{
+    ViewData["Title"] = "Welcome To The Developer Connector";
+}
+
+<section class="container">
+    <h1 class="large text-primary">
+        Add An Experience
+    </h1>
+    <p class="lead">
+        <i class="fas fa-code-branch"></i> Add any developer/programming
+        positions that you have had in the past
+    </p>
+    <small>* = required field</small>
+    <div asp-validation-summary="All" class="lead text-primary"></div>
+
+    <form class="form" method="post" asp-action="AddExperience">
+        <div class="form-group">
+            <input type="text" placeholder="* Job Title" asp-for="JobTitle" />
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="* Company" asp-for="Company" />
+        </div>
+        <div class="form-group">
+            <input type="text" placeholder="Location" asp-for="Location" />
+        </div>
+        <div class="form-group">
+            <h4>From Date</h4>
+            <input type="date" asp-for="FromDate" />
+        </div>
+        <div class="form-group">
+            <h4>To Date</h4>
+            <input type="date" asp-for="ToDate" />
+        </div>
+        <div class="form-group">
+            <p>
+                @Html.EditorFor(x => x.CurrentJob) Current Job
+            </p>
+        </div>
+        <div class="form-group">
+            <textarea asp-for="JobDescription"
+                      cols="30"
+                      rows="5"
+                      placeholder="Job Description" maxlength="450"></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary my-1" />
+        <a class="btn my-1" asp-action="Dashboard">Go Back</a>
+    </form>
+</section>

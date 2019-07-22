@@ -1,0 +1,158 @@
+﻿@{
+    ViewData["Title"] = "Welcome to the DevConnector";
+}
+
+<section class="container">
+    <h1 class="large text-primary">
+        Dashboard
+    </h1>
+    <p class="lead"><i class="fas fa-user"></i> Welcome @User.Identity.Name</p>
+    <div class="dash-buttons">
+        <a asp-action="EditProfile" class="btn">
+            <i class="fas fa-user-circle text-primary"></i> Edit Profile
+        </a>
+        <a asp-action="AddExperience" class="btn">
+            <i class="fab fa-black-tie text-primary"></i> Add Experience
+        </a>
+        <a asp-action="AddEducation" class="btn">
+            <i class="fas fa-graduation-cap text-primary"></i> Add Education
+        </a>
+    </div>
+
+    <h2 class="my-2">
+        Experience Credentials
+    </h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th class="hide-sm">Title</th>
+                <th class="hide-sm">Years</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="expTableBody">
+
+        </tbody>
+    </table>
+
+    <h2 class="my-2">
+        Education Credentials
+    </h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>School</th>
+                <th class="hide-sm">Degree</th>
+                <th class="hide-sm">Years</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="edcTableBody">
+            
+        </tbody>
+    </table>
+
+    <div class="my-2">
+        <form class="form-inline" asp-action="DeleteAccount" asp-controller="Account" method="post">
+            <button class="btn btn-danger">
+                <i class="fas fa-user-minus"></i> Delete My Account
+            </button>
+        </form>
+
+    </div>
+</section>
+
+
+
+<script>
+    $(document).ready(function () {
+        GetExperiencesDash();
+        GetEducationDash();
+    });
+
+
+    function GetExperiencesDash() {
+        $.ajax({
+            url: '@Url.Action("GetExperiences", "Profile")',
+            type: "GET",
+            dataType: "json",
+            success: function (result) {
+                let html = '';
+                $.each(result, function (i, exp) {
+                    let currentJob = exp.currentJob == true ? 'Current' : exp.toDate;
+                    html += `<tr>;
+                     <td>${exp.company}</td>
+                     <td class="hide-sm">${exp.jobTitle}</td>
+                     <td class="hide-sm">${exp.fromDate} - ${currentJob}</td>
+                     <td><button type="button" class="btn btn-danger" onclick="DeleteExp(${exp.id})"> Delete</button></td>
+                     </tr>`;
+                });
+                $("#expTableBody").html(html);
+            },
+            error: function () {
+                alert("Erro ao recuperar informações.");
+            }
+        });
+    }
+
+    function DeleteExp(id) {
+        if (confirm("Você tem certeza que gostaria de excluir este registro?")) {
+            $.ajax({
+                url: '@Url.Action("DeleteExperience", "Profile")/' + id,
+                type: "POST",
+                dataType: "json",
+                data: { id: id },
+                success: function () {
+                    GetExperiencesDash();
+                },
+                error: function () {
+                    alert("Erro ao deletar");
+                }
+            });
+        }
+    }
+
+    function GetEducationDash() {
+        $.ajax({
+            url: '@Url.Action("GetEducation", "Profile")',
+            type: "GET",
+            dataType: "json",
+            success: function (result) {
+                let html = '';
+                console.log(result);
+                $.each(result, function (i, edc) {
+                    let currentSchool = edc.currentSchool == true ? 'Current' : edc.toDate;
+                    html += `<tr>
+                     <td>${edc.schoolBootcamp}</td>
+                     <td class="hide-sm">${edc.degreeCertificate}</td>
+                     <td class="hide-sm">${edc.fromDate} - ${currentSchool}</td>
+                     <td> <button type="button" class="btn btn-danger" onclick="DeleteEdc(${edc.id})"> Delete</button></td>
+                     </tr>`
+                });
+                $("#edcTableBody").html(html);
+            },
+            error: function () {
+                alert("Erro ao recuperar informações.");
+            }
+        });
+    }
+
+    function DeleteEdc(id) {
+        if (confirm("Você tem certeza que gostaria de excluir este registro?")) {
+            $.ajax({
+                url: '@Url.Action("DeleteEducation", "Profile")/' + id,
+                type: "POST",
+                dataType: "json",
+                data: { id: id },
+                success: function () {
+                    GetExperiencesDash();
+                    GetEducationDash();
+                },
+                error: function () {
+                    alert("Erro ao deletar");
+                }
+            });
+        }
+    }
+</script>
