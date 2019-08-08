@@ -75,7 +75,7 @@ using DevConnectorBackEnd.Models.ViewModels;
             WriteLiteral("<section class=\"container\">\r\n    ");
             EndContext();
             BeginContext(129, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ad6d9df50bc420aa6847eeece0e44af", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "37bf4263828a470e9bf7d63d1a9feae2", async() => {
                 BeginContext(166, 13, true);
                 WriteLiteral("Back To Posts");
                 EndContext();
@@ -138,7 +138,7 @@ WriteAttributeValue("", 404, Model.UserPic, 404, 14, false);
             WriteLiteral("\r\n            </p>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"post-form\">\r\n        <div class=\"post-form-header bg-primary\">\r\n            <h3>Leave A Comment</h3>\r\n        </div>\r\n        ");
             EndContext();
             BeginContext(793, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c626b635949e453e8e5b455a26de4e61", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "646406b545544b52b8f35f90623ff201", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -162,7 +162,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(869, 354, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2d2ca068218457bae7b89ce30e58a89", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "108b909150774aaf8916decac0e05b77", async() => {
                 BeginContext(907, 309, true);
                 WriteLiteral(@"
             <textarea name=""text""

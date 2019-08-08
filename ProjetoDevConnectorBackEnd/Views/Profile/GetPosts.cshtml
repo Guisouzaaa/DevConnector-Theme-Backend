@@ -124,7 +124,7 @@
     $(document).on("click",'#btn-dislike', function () {
         var post = JSON.stringify({ 
             id: $(this).data('id'),
-            dislikes:$(this).data('item')
+            dislikes: $(this).data('item')
         });
 
         $.ajax({

@@ -85,7 +85,7 @@
                      <td>${exp.company}</td>
                      <td class="hide-sm">${exp.jobTitle}</td>
                      <td class="hide-sm">${exp.fromDate} - ${currentJob}</td>
-                     <td><button type="button" class="btn btn-danger" onclick="DeleteExp(${exp.id})"> Delete</button></td>
+                     <td><button type="button" class="btn btn-danger deleteExp" data-id="${exp.id}">Delete</button></td>
                      </tr>`;
                 });
                 $("#expTableBody").html(html);
@@ -96,7 +96,9 @@
         });
     }
 
-    function DeleteExp(id) {
+    $(document).on("click", ".deleteExp", function () {
+        let id = $(this).data("id");
+
         if (confirm("Você tem certeza que gostaria de excluir este registro?")) {
             $.ajax({
                 url: '@Url.Action("DeleteExperience", "Profile")/' + id,
@@ -111,7 +113,7 @@
                 }
             });
         }
-    }
+    });
 
     function GetEducationDash() {
         $.ajax({
@@ -127,7 +129,7 @@
                      <td>${edc.schoolBootcamp}</td>
                      <td class="hide-sm">${edc.degreeCertificate}</td>
                      <td class="hide-sm">${edc.fromDate} - ${currentSchool}</td>
-                     <td> <button type="button" class="btn btn-danger" onclick="DeleteEdc(${edc.id})"> Delete</button></td>
+                     <td><button type="button" class="btn btn-danger deleteEdc" data-id="${edc.id}"> Delete</button></td>
                      </tr>`
                 });
                 $("#edcTableBody").html(html);
@@ -138,7 +140,9 @@
         });
     }
 
-    function DeleteEdc(id) {
+    $(document).on("click", ".deleteEdc", function () {
+        let id = $(this).data("id");
+
         if (confirm("Você tem certeza que gostaria de excluir este registro?")) {
             $.ajax({
                 url: '@Url.Action("DeleteEducation", "Profile")/' + id,
@@ -154,5 +158,5 @@
                 }
             });
         }
-    }
+    });
 </script>
