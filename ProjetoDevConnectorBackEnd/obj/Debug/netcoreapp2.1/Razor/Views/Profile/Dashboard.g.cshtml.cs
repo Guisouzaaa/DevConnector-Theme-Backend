@@ -84,7 +84,7 @@ using DevConnectorBackEnd.Models.ViewModels;
             WriteLiteral("</p>\r\n    <div class=\"dash-buttons\">\r\n        ");
             EndContext();
             BeginContext(282, 128, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "43779da22cb74b4581496ab1c685354a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe23569ec2a14205822f271a4af043d1", async() => {
                 BeginContext(322, 84, true);
                 WriteLiteral("\r\n            <i class=\"fas fa-user-circle text-primary\"></i> Edit Profile\r\n        ");
                 EndContext();
@@ -107,7 +107,7 @@ using DevConnectorBackEnd.Models.ViewModels;
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(420, 130, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dc0157bac3d344cea9e3e12e8226f380", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "34ccc1bca4214b48a1e22b73a0c6c1f3", async() => {
                 BeginContext(462, 84, true);
                 WriteLiteral("\r\n            <i class=\"fab fa-black-tie text-primary\"></i> Add Experience\r\n        ");
                 EndContext();
@@ -130,7 +130,7 @@ using DevConnectorBackEnd.Models.ViewModels;
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(560, 133, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "91682134502a40388b4cc5df96161810", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "064ee4d392504a8d9a17ac62dd25fbaa", async() => {
                 BeginContext(601, 88, true);
                 WriteLiteral("\r\n            <i class=\"fas fa-graduation-cap text-primary\"></i> Add Education\r\n        ");
                 EndContext();
@@ -191,7 +191,7 @@ using DevConnectorBackEnd.Models.ViewModels;
         ");
             EndContext();
             BeginContext(1538, 246, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7248f41fa8ec4046b20e0736f5c8df4b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "50d32e2762cc4afd9b4bbcce09751ec0", async() => {
                 BeginContext(1630, 147, true);
                 WriteLiteral("\r\n            <button class=\"btn btn-danger\">\r\n                <i class=\"fas fa-user-minus\"></i> Delete My Account\r\n            </button>\r\n        ");
                 EndContext();

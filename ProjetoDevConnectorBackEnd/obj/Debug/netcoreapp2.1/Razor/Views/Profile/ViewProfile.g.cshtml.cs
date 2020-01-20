@@ -69,7 +69,7 @@ using DevConnectorBackEnd.Models.ViewModels;
             WriteLiteral("<section class=\"container\">\r\n    ");
             EndContext();
             BeginContext(126, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4129ab0a32c24f0a81419c08b73dcec2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "80eb1c5a643e4df3870c71bf99da1619", async() => {
                 BeginContext(166, 16, true);
                 WriteLiteral("Back To Profiles");
                 EndContext();

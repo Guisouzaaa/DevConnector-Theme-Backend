@@ -99,7 +99,7 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("                <div class=\"buttons\">\r\n                    ");
             EndContext();
             BeginContext(698, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f3fecf5e5efc4bd29758a8a92c72671b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ff5611d755b14aa78f8bae87f882e210", async() => {
                 BeginContext(772, 7, true);
                 WriteLiteral("Sign Up");
                 EndContext();
@@ -124,7 +124,7 @@ using Microsoft.AspNetCore.Identity;
             WriteLiteral("\r\n                    ");
             EndContext();
             BeginContext(805, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7911ab0a5e4d4b119ad60032af4269d1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f7a5a73234f8449fa900a1d2d1fc17db", async() => {
                 BeginContext(868, 5, true);
                 WriteLiteral("Login");
                 EndContext();

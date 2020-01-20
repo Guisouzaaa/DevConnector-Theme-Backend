@@ -82,7 +82,7 @@ using DevConnectorBackEnd.Models.ViewModels;
         ");
             EndContext();
             BeginContext(409, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b6d851fe7a584775b5de8e704f260786", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "210c58a74800470aad25db7c3b1e732d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -106,7 +106,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
             WriteLiteral("\r\n        ");
             EndContext();
             BeginContext(485, 247, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "beeae118caf241f4a2662284a81d9402", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4ce6b25287ce4081a0a4c3796bb763d3", async() => {
                 BeginContext(523, 202, true);
                 WriteLiteral("\r\n            <textarea cols=\"30\" rows=\"5\" placeholder=\"Create a post\" id=\"post-body\"></textarea>\r\n            <input type=\"submit\" value=\"Submit\" class=\"btn btn-dark my-1\" id=\"create-post\" />\r\n        ");
                 EndContext();
